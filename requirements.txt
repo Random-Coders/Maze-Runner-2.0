@@ -1,3 +1,9 @@
-gesture-recognizer==0.2.0
+gesture-classifying-model==0.1.10
+Keras==1.2.2
 numpy==1.15.4
-opencv-python==3.4.3.18
+PyYAML==3.13
+scipy==1.1.0
+six==1.11.0
+Theano==0.9.0
+tqdm==4.28.1
+wget==3.2
