@@ -1,0 +1,2 @@
+gesture_recognizer
+Pygame==1.9.4
