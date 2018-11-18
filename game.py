@@ -4,7 +4,7 @@ import pygame
 import time
 # Import loading code for pygame
 from pygame.locals import *
-from Sprite import Bird
+from Sprite import Player
 from gesture_recognizer import GestureRecognizer as gr
 # Import settings
 from settings import *
@@ -23,7 +23,6 @@ display_surface = pygame.display.set_mode((750,750))
 pygame.display.set_caption('Hand Game')
 
 player = Player()
-
 # Only Allow Script that only allows python3.6 and directly called script
 if __name__ != '__main__':
     # Python version not 3.6
