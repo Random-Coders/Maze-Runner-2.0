@@ -27,9 +27,13 @@ display_surface = pygame.display.set_mode((750,750))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 # create player
 player = Player()
 
+>>>>>>> 223dca25a9cd8368f6bd85c498a1b4249710b425
 # Fill base black backgound
 display_surface.fill((0, 0, 0))
 
@@ -39,7 +43,15 @@ rect = pygame.Rect(750,750,60,90)
 # Create camera
 camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
 
+<<<<<<< HEAD
+=======
+player = Player()
+
 # Only Allow Script that only allows python3.6 and directly called script
+>>>>>>> d7d72e19d1f94ba6f392de96f0bfef4bd22f93ca
+=======
+# Only Allow Script that only allows python3.6 and directly called script
+>>>>>>> 223dca25a9cd8368f6bd85c498a1b4249710b425
 if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
