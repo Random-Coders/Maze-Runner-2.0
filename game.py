@@ -6,10 +6,9 @@ import sys
 from pygame.locals import *
 from Sprite import Bird
 # Tile Value Constants
-DIRT = 0
-GRASS = 1
+WALL = 0
+GROUND = 1
 WATER = 2
-LEAVE = 3
 
 # Color Constants in RGB
 BROWN = (99, 59, 30)
@@ -22,19 +21,18 @@ RED = (193, 44, 44)
 
 # Pair tiles with color
 textures = {
-            DIRT  : BROWN,
-            GRASS : GREEN,
-            WATER : BLUE,
-            LEAVE : LIGHTGREEN,
+            WALL  : BROWN,
+            GROUND : GREEN,
+            WATER : BLUE
         }
 
 # Create Tile Map
 tilemap = [
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, GRASS, GRASS],
+            [WALL, WALL,   WALL,   WALL,   WALL],
+            [WALL, GROUND, GROUND, GROUND, WALL],
+            [WALL, GROUND, WALL,   GROUND, WALL],
+            [WALL, GROUND, WALL,   GROUND, WALL],
+            [WALL, GROUND, WALL,   GROUND, WALL]
           ]
 
 # Create Map
