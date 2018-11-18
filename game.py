@@ -1,33 +1,58 @@
+# Import Pygame
 import pygame
-
+# Import loading code for pygame
 from pygame.locals import *
 
+# Tile Value Constants
 DIRT = 0
 GRASS = 1
 WATER = 2
 LEAVE = 3
 
-BROWN =
-GREEN =
-LIGHTGREEN =
-BLUE =
+# Color Constants in RGB
+BROWN = (99, 59, 30)
+GREEN = (69, 122, 67)
+LIGHTGREEN = (111, 206, 107)
+BLUE = (50, 178, 229)
+GRAY = (151, 152, 153)
+WHITE = (255, 255, 255)
+RED = (193, 44, 44)
 
+# Pair tiles with color
 colors = {
-            DIRT  : BROWN
-            GRASS : GREEN
-            WATER : BLUE
-            LEAF : LIGHTGREEN
+            DIRT  : BROWN,
+            GRASS : GREEN,
+            WATER : BLUE,
+            LEAVE : LIGHTGREEN
         }
 
+# Create Tile Map
+tilemap = [
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, GRASS, GRASS]
+          ]
 
+# Create Map
+TILESIZE = 50
+MAPWIDTH = 15
+MAPHEIGHT = 15
+
+# Initialise Pygame
 pygame.init()
 
-display_surface = pygame.display.set_mode((1000,1000))
+# Create window
+display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 
+# Create display title
 pygame.display.set_caption('Hand Game')
 
+# MAIN LOOP
 while True:
 
+    # If game quit than quit app
     for event in pygame.event.get():
 
         if event.type == QUIT:
@@ -35,6 +60,7 @@ while True:
             pygame.quit()
             exit()
 
+    # Update display
     pygame.display.update()
 
 character = makeSprite("blue.png")
