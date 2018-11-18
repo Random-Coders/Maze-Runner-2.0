@@ -27,13 +27,14 @@ display_surface = pygame.display.set_mode((750,750))
 
 # Create rect
 rect = pygame.Rect(750,750,60,90)
+
+player = Player()
+
  # Create camera
-camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
+camera = camera.Camera(player.sprite.rect, MAPWIDTH, MAPHEIGHT)
 
 # Create display title
 pygame.display.set_caption('Hand Game')
-
-player = Player()
 
 # Only Allow Script that only allows python3.6 and directly called script
 if __name__ != '__main__':
@@ -69,7 +70,11 @@ while True:
 
     # camera_data = camera.update(player, current)
 
+<<<<<<< HEAD
+    create.level(display_surface, current, camera_data, player.sprite.rect.x, player.sprite.rect.y)
+=======
     # create.level(display_surface, current, camera_data, player.x, player.y)
+>>>>>>> 5fa1ea5fb1f6ce299260e5ea5cd63d494ef26521
 
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):
