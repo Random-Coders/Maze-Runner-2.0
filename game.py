@@ -3,6 +3,8 @@ import pygame
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
+from gesture_recognizer import GestureRecognizer as gr
+
 # Tile Value Constants
 DIRT = 0
 GRASS = 1
@@ -51,6 +53,9 @@ pygame.display.set_caption('Hand Game')
 
 bird = Bird()
 
+recognizer = gr.GestureRecognizer()
+recognizer.start_recognizing()
+
 # MAIN LOOP
 while True:
 
@@ -59,6 +64,7 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
+
     bird.handle_keys() # handle the keys
     bird.draw(display_surface)
     # Update display
