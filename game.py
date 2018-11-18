@@ -12,7 +12,12 @@ from settings import *
 from maps import *
 # Import os
 import os
-
+# Import level
+import level
+# Import camera
+import camera
+# Import Create
+import create
 # Initialise Pygame
 pygame.init()
 
@@ -22,7 +27,18 @@ display_surface = pygame.display.set_mode((750,750))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+# create player
 player = Player()
+
+# Fill base black backgound
+display_surface.fill((0, 0, 0))
+
+# Create rect
+rect = pygame.Rect(750,750,60,90)
+
+# Create camera
+camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
+
 # Only Allow Script that only allows python3.6 and directly called script
 if __name__ != '__main__':
     # Python version not 3.6
@@ -32,26 +48,21 @@ if __name__ != '__main__':
 recognizer = gr.GestureRecognizer(print_pos=False)
 recognizer.start_recognizing()
 
+current = level.Level("level_1.lvl")
+
 # MAIN LOOP
 while True:
     time.sleep(1./60)
-    # If game quit than quit app
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            os.remove('__pycache__/Sprite.cpython-36.pyc')
-            exit()
 
-    for row in range(MAPHEIGHT):
-
-        for column in range(MAPWIDTH):
-            pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
+    create.level(display_surface, current, camera)
 
     # bird.handle_keys() # handle the keys
     x_dir = recognizer.gesture.x_dir
     y_dir = recognizer.gesture.y_dir
     player.handle_gestures(x_dir, y_dir)
     player.draw(display_surface)
+
+    camera.update(rect, current)
 
     # Update display
     pygame.display.update()
