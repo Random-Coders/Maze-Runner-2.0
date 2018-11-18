@@ -14,7 +14,7 @@ from maps import *
 # Import os
 import os
 # Import level
-import level
+#import level
 # Import camera
 import camera
 # Import Create
@@ -45,7 +45,7 @@ if __name__ != '__main__':
 recognizer = gr.GestureRecognizer(print_pos=False)
 recognizer.start_recognizing()
 
-current = level.Level("level_1.lvl")
+#current = level.Level("level_1.lvl")
 
 # MAIN LOOP
 while True:
@@ -62,9 +62,9 @@ while True:
     # player.handle_gestures(x_dir, y_dir)
     player.handle_keys()
 
-    camera_data = camera.update(player, current)
+    #camera_data = camera.update(player.sprite.rect.x, player.sprite.rect.y)
 
-    create.level(display_surface, current, camera_data, player.sprite.rect.x, player.sprite.rect.y)
+    create.level(display_surface, player.sprite.rect.x, player.sprite.rect.y)
 
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):
