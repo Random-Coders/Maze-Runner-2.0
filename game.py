@@ -62,7 +62,7 @@ while True:
     #player.handle_gestures(x_dir, y_dir)
     player.handle_keys()
 
-    camera_data = camera.update(rect, current)
+    camera_data = camera.update(player, current)
 
     create.level(display_surface, current, camera_data, player.x, player.y)
 
