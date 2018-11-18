@@ -10,7 +10,7 @@ LEAVE = 3
 BROWN =
 GREEN =
 LIGHTGREEN =
-BLUE = 
+BLUE =
 
 colors = {
             DIRT  : BROWN,
@@ -19,10 +19,21 @@ colors = {
             LEAVE : LIGHTGREEN
         }
 
+tilemap = [
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, LEAVE, WATER],
+            [GRASS, GRASS, GRASS]
+          ]
+
+TILESIZE = 50
+MAPWIDTH = 15
+MAPHEIGHT = 15
 
 pygame.init()
 
-display_surface = pygame.display.set_mode((1000,1000))
+display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 
 pygame.display.set_caption('Hand Game')
 
@@ -36,4 +47,3 @@ while True:
             exit()
 
     pygame.display.update()
- 
