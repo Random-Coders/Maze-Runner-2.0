@@ -59,7 +59,7 @@ class Player(object):  # represents the character, not the game
             # moving down
             print("moving down")
             self.sprite.rect.centery += dist*y_dir
-        if self.sprite.rect.collidelist(list) > 1:
+        if self.sprite.rect.collidelist(rect_list) > 1:
             print('collided')
             self.sprite.rect.centerx = self.prev_x
             self.sprite.rect.centery = self.prev_y
