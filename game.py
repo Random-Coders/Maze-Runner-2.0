@@ -21,9 +21,9 @@ RED = (193, 44, 44)
 # Pair tiles with color
 colors = {
             DIRT  : BROWN,
-            GRASS : GREEN
-            WATER : BLUE
-            LEAVE : LIGHTGREEN
+            GRASS : GREEN,
+            WATER : BLUE,
+            LEAVE : LIGHTGREEN,
         }
 
 # Create Tile Map
@@ -32,7 +32,7 @@ tilemap = [
             [GRASS, LEAVE, WATER],
             [GRASS, LEAVE, WATER],
             [GRASS, LEAVE, WATER],
-            [GRASS, GRASS, GRASS]
+            [GRASS, GRASS, GRASS],
           ]
 
 # Create Map
