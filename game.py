@@ -1,5 +1,7 @@
 # Import Pygame
 import pygame
+# Import time
+import time
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
@@ -46,7 +48,7 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 
 # Create display title
 pygame.display.set_caption('Hand Game')
-red = 255, 0, 0
+
 bird = Bird()
 # Only Allow Script that only allows python3.6 and directly called script
 if __name__ != '__main__':
@@ -56,7 +58,7 @@ if __name__ != '__main__':
 
 # MAIN LOOP
 while True:
-
+    time.sleep(1./60)
     # If game quit than quit app
     for event in pygame.event.get():
         if event.type == QUIT:
