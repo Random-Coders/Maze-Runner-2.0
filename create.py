@@ -10,12 +10,12 @@ def level(display_surface, level, camera, playerx, playery):
 
     for y in range(level.levelHeight):
         for x in range(level.levelWidth):
-            # blockRect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
+            blockRect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
 
-            if tilemap[y][x] == 1:
-                continue
-            elif tilemap[y][x] == 0:
-                display_surface.blit(display_surface,
-                             (playerx,playery))
-            else:
-                pass
+            if camera.colliderect(blockRect):
+                if tilemap[y][x] == 1:
+                    continue
+                elif tilemap[y][x] == 0:
+                    display_surface.blit(display_surface,(playerx,playery))
+                else:
+                    pass

@@ -21,6 +21,6 @@ colors = {
         }
 
 # Create Map
-TILESIZE = 50
+TILESIZE = 150
 MAPWIDTH = 15
 MAPHEIGHT = 15
