@@ -14,7 +14,9 @@ def level(display_surface, level, camera):
 
             if level.collisionLayer[y][x] == level.blank:
                 continue
-            if level.collisionLayer[y][x] == level.block:
+            elif level.collisionLayer[y][x] == level.block:
                 display_surface.blit(display_surface,
                              ((x*TILESIZE) - camera.left,
                              (y*TILESIZE) - camera.top,))
+            else:
+                pass
