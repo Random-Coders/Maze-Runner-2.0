@@ -61,8 +61,15 @@ while True:
             pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
 
     camera.update(rect, current)
-
-    create.level(display_surface, current, camera)
+    for y in range(MAPHEIGHT):
+        for x in range(MAPWIDTH):
+            if tilemap[y][x] == level.block:
+                display_surface.blit(display_surface,
+                             ((x*TILESIZE) - camera.left,
+                             (y*TILESIZE) - camera.top,))
+            else:
+                pass
+    # create.level(display_surface, current, camera)
 
     # bird.handle_keys() # handle the keys
     x_dir = recognizer.gesture.x_dir

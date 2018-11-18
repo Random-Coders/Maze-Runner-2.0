@@ -10,7 +10,7 @@ def level(display_surface, level, camera):
 
     for y in range(level.levelHeight):
         for x in range(level.levelWidth):
-            blockRect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
+            # blockRect = pygame.Rect(x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE)
 
             if level.collisionLayer[y][x] == level.blank:
                 continue
