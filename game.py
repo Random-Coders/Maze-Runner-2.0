@@ -18,3 +18,4 @@ while True:
             exit()
 
     pygame.display.update()
+ 
