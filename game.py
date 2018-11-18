@@ -21,8 +21,8 @@ RED = (193, 44, 44)
 # Pair tiles with color
 colors = {
             DIRT  : BROWN,
-            GRASS : GREEN
-            WATER : BLUE
+            GRASS : GREEN,
+            WATER : BLUE,
             LEAVE : LIGHTGREEN
         }
 
