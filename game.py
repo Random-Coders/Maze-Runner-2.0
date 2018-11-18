@@ -63,18 +63,14 @@ while True:
             os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
-    x_dir = recognizer.gesture.x_dir
-    y_dir = recognizer.gesture.y_dir
-    player.handle_gestures(x_dir, y_dir, rect_list)
+    #x_dir = recognizer.gesture.x_dir
+    #y_dir = recognizer.gesture.y_dir
+    #player.handle_gestures(x_dir, y_dir, rect_list)
     player.handle_keys(rect_list)
 
     # camera_data = camera.update(player, current)
 
-<<<<<<< HEAD
-    create.level(display_surface, current, camera_data, player.sprite.rect.x, player.sprite.rect.y)
-=======
     # create.level(display_surface, current, camera_data, player.x, player.y)
->>>>>>> 5fa1ea5fb1f6ce299260e5ea5cd63d494ef26521
 
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):

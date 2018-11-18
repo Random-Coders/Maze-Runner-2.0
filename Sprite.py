@@ -10,25 +10,17 @@ class Player(object):  # represents the character, not the game
         # self.image = pygame.image.load("assets/Circle.png")
         self.sprite = pygame.sprite.Sprite()
         self.sprite.image = pygame.image.load("assets/Circle.png").convert_alpha()
-        self.sprite.image = pygame.transform.scale(self.sprite.image, (30,30))
+        self.sprite.image = pygame.transform.scale(self.sprite.image, (20,20))
         self.sprite.rect = self.sprite.image.get_rect()
-        self.sprite.rect.move_ip(175,175)
+        self.sprite.rect.move_ip(70,70)
         # self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
-<<<<<<< HEAD
-        self.x = 175
-        self.y = 175
-        self.prev_x_dir = 175
-        self.prev_y_dir = 175
-    def handle_keys(self):
-=======
         self.prev_x = 0
         self.prev_y = 0
         self.prev_x_dir = 0
         self.prev_y_dir = 0
     def handle_keys(self, list):
-        
->>>>>>> 5fa1ea5fb1f6ce299260e5ea5cd63d494ef26521
+
         """ Handles Keys """
         key = pygame.key.get_pressed()
         dist = 10
