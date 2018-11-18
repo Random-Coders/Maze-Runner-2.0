@@ -1,5 +1,7 @@
 # Import Pygame
 import pygame
+# Import sys
+import sys
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
@@ -51,17 +53,23 @@ pygame.display.set_caption('Hand Game')
 
 bird = Bird()
 
-# MAIN LOOP
-while True:
+if sys.version_info[0] == 3.6 and __name__ == '__main__':
 
-    # If game quit than quit app
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            exit()
+    # MAIN LOOP
+    while True:
 
-    bird.handle_keys() # handle the keys
-    bird.draw(display_surface)
+        # If game quit than quit app
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
 
-    # Update display
-    pygame.display.update()
+        bird.handle_keys() # handle the keys
+        bird.draw(display_surface)
+
+        # Update display
+        pygame.display.update()
+
+# Python version not 3.6
+else:
+    print("Must be using Python 3.6")
