@@ -51,7 +51,7 @@ pygame.display.set_caption('Hand Game')
 
 bird = Bird()
 # Only Allow Script that only allows python3.6 and directly called script
-if sys.version_info[0] == 3.6 or __name__ == '__main__':
+if sys.version_info[0] != 3.6 or __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
