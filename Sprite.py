@@ -6,6 +6,7 @@ class Player(object):  # represents the character, not the game
     def __init__(self):
         """ The constructor of the class """
         self.image = pygame.image.load("assets/Circle.png")
+        self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
         self.x = 100
         self.y = 100
