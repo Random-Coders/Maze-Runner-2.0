@@ -1,7 +1,5 @@
 # Import Pygame
 import pygame
-# Import sys
-import sys
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
@@ -51,7 +49,7 @@ pygame.display.set_caption('Hand Game')
 
 bird = Bird()
 # Only Allow Script that only allows python3.6 and directly called script
-if sys.version_info[0] < 3.6.7 or __name__ != '__main__' or sys.version_info[0] > 3.3:
+if__name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
