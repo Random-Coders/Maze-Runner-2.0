@@ -21,11 +21,11 @@ WHITE = (255, 255, 255)
 RED = (193, 44, 44)
 
 # Pair tiles with color
-colors = {
+textures = {
             DIRT  : BROWN,
             GRASS : GREEN,
             WATER : BLUE,
-            LEAVE : LIGHTGREEN
+            LEAVE : LIGHTGREEN,
         }
 
 # Create Tile Map
@@ -34,7 +34,7 @@ tilemap = [
             [GRASS, LEAVE, WATER],
             [GRASS, LEAVE, WATER],
             [GRASS, LEAVE, WATER],
-            [GRASS, GRASS, GRASS]
+            [GRASS, GRASS, GRASS],
           ]
 
 # Create Map
@@ -67,5 +67,6 @@ while True:
 
     bird.handle_keys() # handle the keys
     bird.draw(display_surface)
+
     # Update display
     pygame.display.update()
