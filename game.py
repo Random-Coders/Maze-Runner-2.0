@@ -11,7 +11,7 @@ LEAVE = 3
 
 # Color Constants in RGB
 BROWN = (99, 59, 30)
-GREEN = 69, 122, 67)
+GREEN = (69, 122, 67)
 LIGHTGREEN = (111, 206, 107)
 BLUE = (50, 178, 229)
 GRAY = (151, 152, 153)
