@@ -25,6 +25,11 @@ pygame.init()
 # Create window
 display_surface = pygame.display.set_mode((750,750))
 
+# Create rect
+rect = pygame.Rect(750,750,60,90)
+ # Create camera
+camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
+
 # Create display title
 pygame.display.set_caption('Hand Game')
 
@@ -51,6 +56,12 @@ while True:
             os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
+    for row in range(MAPHEIGHT):
+        for column in range(MAPWIDTH):
+            pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
+
+    camera.update(rect, current)
+
     create.level(display_surface, current, camera)
 
     # bird.handle_keys() # handle the keys
@@ -58,8 +69,6 @@ while True:
     y_dir = recognizer.gesture.y_dir
     player.handle_gestures(x_dir, y_dir)
     player.draw(display_surface)
-
-    camera.update(rect, current)
 
     # Update display
     pygame.display.update()
