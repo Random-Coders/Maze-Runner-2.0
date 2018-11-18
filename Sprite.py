@@ -38,7 +38,7 @@ class Player(object):  # represents the character, not the game
             self.sprite.rect.centery = self.prev_y
         self.prev_x = self.sprite.rect.centerx
         self.prev_y = self.sprite.rect.centery
-    def handle_gestures(self, x_dir, y_dir):
+    def handle_gestures(self, x_dir, y_dir, rect_list):
         dist = 10
         if x_dir == 0 and y_dir == 0:
             # still
@@ -46,21 +46,27 @@ class Player(object):  # represents the character, not the game
         if x_dir > 0.5:
             # moving right
             print("moving right")
-            self.x += dist*x_dir
+            self.sprite.rect.centerx += dist*x_dir
         elif x_dir < 0.5:
             # moving left
             print("moving left")
-            self.x -= dist*x_dir
+            self.sprite.rect.centerx -= dist*x_dir
         if y_dir > 0.5:
             # moving up
             print("moving up")
-            self.y -= dist*y_dir
+            self.sprite.rect.centery -= dist*y_dir
         elif y_dir < 0.5:
             # moving down
             print("moving down")
-            self.y += dist*y_dir
+            self.sprite.rect.centery += dist*y_dir
+        if self.sprite.rect.collidelist(list) > 1:
+            print('collided')
+            self.sprite.rect.centerx = self.prev_x
+            self.sprite.rect.centery = self.prev_y
         self.prev_x_dir = x_dir
         self.prev_y_dir = y_dir
+        self.prev_x = self.sprite.rect.centerx
+        self.prev_y = self.sprite.rect.centery
         # print('x_dir', x_dir)
         # print('y_dir', y_dir)
     def draw(self, surface):
