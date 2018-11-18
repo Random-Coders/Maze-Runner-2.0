@@ -1,11 +1,12 @@
+#background movement for game :)
 import pygame
 import os
-
-class Bird(object):  # represents the bird, not the game
+# import gesture recognizer class
+class Bird(object):  # represents the character, not the game
     def __init__(self):
         """ The constructor of the class """
         self.image = pygame.image.load("blue.png")
-        # the bird's position
+        # the character's position
         self.x = 0
         self.y = 0
 
