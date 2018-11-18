@@ -17,7 +17,7 @@ import os
 pygame.init()
 
 # Create window
-display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
+display_surface = pygame.display.set_mode((750,750))
 
 # Create display title
 pygame.display.set_caption('Hand Game')
