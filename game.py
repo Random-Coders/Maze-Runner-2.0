@@ -70,11 +70,7 @@ while True:
 
     # camera_data = camera.update(player, current)
 
-<<<<<<< HEAD
-    create.level(display_surface, current, camera_data, player.sprite.rect.x, player.sprite.rect.y)
-=======
     # create.level(display_surface, current, camera_data, player.x, player.y)
->>>>>>> 5fa1ea5fb1f6ce299260e5ea5cd63d494ef26521
 
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):
