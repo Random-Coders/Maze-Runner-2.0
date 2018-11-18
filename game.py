@@ -73,7 +73,7 @@ while True:
 
 character = makeSprite("blue.png")
 showSprite(character)
-(character, x, 800)
+moveSprite(character, x, 800)
 xPo = 500
 yPo = 500
 xSpeed = 0
@@ -95,7 +95,7 @@ while True:
     xPo += xSpeed
     if xPo > 980:
         xPo = -100
-    elif xPo < -100
+    elif xPo < -100:
         xPo = 980
 
     yPo += ySpeed
@@ -105,3 +105,4 @@ while True:
         yPo = 900
     moveSprite(character, xPo, yPo)
     tick(25)
+    showSprite(character)
