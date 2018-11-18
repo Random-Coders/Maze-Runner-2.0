@@ -14,7 +14,7 @@ from maps import *
 # Import os
 import os
 # Import level
-import level
+#import level
 # Import camera
 import camera
 # Import Create
@@ -45,7 +45,7 @@ if __name__ != '__main__':
 recognizer = gr.GestureRecognizer(print_pos=False)
 recognizer.start_recognizing()
 
-current = level.Level("level_1.lvl")
+#current = level.Level("level_1.lvl")
 
 rect_list = []
 for row in range(MAPHEIGHT):
