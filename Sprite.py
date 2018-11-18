@@ -1,7 +1,9 @@
-#background movement for game :)
+#background movement for game
 import pygame
 import os
+from gesture_recognizer import GestureRecognizer as gr
 # import gesture recognizer class
+#set hand pos as a variable equal to the object (sprite)
 class Bird(object):  # represents the character, not the game
     def __init__(self):
         """ The constructor of the class """
