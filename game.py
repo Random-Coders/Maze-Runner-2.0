@@ -22,6 +22,8 @@ display_surface = pygame.display.set_mode((750,750))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+display_surface.fill((0, 0, 0))
+
 bird = Bird()
 
 if __name__ != '__main__':
