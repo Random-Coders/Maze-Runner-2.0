@@ -1,72 +1,74 @@
 # Import Pygame
 import pygame
+# Import time
+import time
 # Import loading code for pygame
 from pygame.locals import *
-from Sprite import Bird
+from Sprite import Player
+# Import gesture recognizer
 from gesture_recognizer import GestureRecognizer as gr
-
-# Tile Value Constants
-DIRT = 0
-GRASS = 1
-WATER = 2
-LEAVE = 3
-
-# Color Constants in RGB
-BROWN = (99, 59, 30)
-GREEN = (69, 122, 67)
-LIGHTGREEN = (111, 206, 107)
-BLUE = (50, 178, 229)
-GRAY = (151, 152, 153)
-WHITE = (255, 255, 255)
-RED = (193, 44, 44)
-
-# Pair tiles with color
-textures = {
-            DIRT  : BROWN,
-            GRASS : GREEN,
-            WATER : BLUE,
-            LEAVE : LIGHTGREEN,
-        }
-
-# Create Tile Map
-tilemap = [
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, LEAVE, WATER],
-            [GRASS, GRASS, GRASS],
-          ]
-
-# Create Map
-TILESIZE = 50
-MAPWIDTH = 15
-MAPHEIGHT = 15
-
+# Import settings
+from settings import *
+# Import maps
+from maps import *
+# Import os
+import os
+# Import level
+import level
+# Import camera
+import camera
+# Import Create
+import create
 # Initialise Pygame
 pygame.init()
 
 # Create window
-display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
+display_surface = pygame.display.set_mode((750,750))
+
+# Create rect
+rect = pygame.Rect(750,750,60,90)
+ # Create camera
+camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
 
 # Create display title
 pygame.display.set_caption('Hand Game')
 
-bird = Bird()
+player = Player()
 
-recognizer = gr.GestureRecognizer()
+# Only Allow Script that only allows python3.6 and directly called script
+if __name__ != '__main__':
+    # Python version not 3.6
+    print("Must be using Python 3.6")
+    exit()
+
+recognizer = gr.GestureRecognizer(print_pos=False)
 recognizer.start_recognizing()
+
+current = level.Level("level_1.lvl")
 
 # MAIN LOOP
 while True:
-
+    time.sleep(1./60)
     # If game quit than quit app
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
+            os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
-    bird.handle_keys() # handle the keys
-    bird.draw(display_surface)
+    for row in range(MAPHEIGHT):
+        for column in range(MAPWIDTH):
+            pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
+
+    camera.update(rect, current)
+
+    create.level(display_surface, current, camera)
+
+    # bird.handle_keys() # handle the keys
+    x_dir = recognizer.gesture.x_dir
+    y_dir = recognizer.gesture.y_dir
+    player.handle_gestures(x_dir, y_dir)
+    player.draw(display_surface)
 
     # Update display
     pygame.display.update()
