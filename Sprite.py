@@ -29,22 +29,22 @@ class Player(object):  # represents the character, not the game
         if x_dir == 0 and y_dir == 0:
             # still
             print("still")
-        if x_dir > 0 and x_dir > 0.5:
+        if x_dir > 0:
             # moving right
             print("moving right")
-            self.x += dist
-        elif x_dir < 0 and x_dir < -0.5:
+            self.x += dist*x_dir
+        elif x_dir < 0:
             # moving left
             print("moving left")
-            self.x -= dist
-        if y_dir > 0 and y_dir > 0.5:
+            self.x -= dist*x_dir
+        if y_dir > 0:
             # moving up
             print("moving up")
-            self.y -= dist
-        elif y_dir < 0 and y_dir < -0.5:
+            self.y -= dist*y_dir
+        elif y_dir < 0:
             # moving down
             print("moving down")
-            self.y += dist
+            self.y += dist*y_dir
         self.prev_x_dir = x_dir
         self.prev_y_dir = y_dir
         # print('x_dir', x_dir)
