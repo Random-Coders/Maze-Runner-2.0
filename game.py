@@ -19,7 +19,7 @@ WHITE = (255, 255, 255)
 RED = (193, 44, 44)
 
 # Pair tiles with color
-colors = {
+textures = {
             DIRT  : BROWN,
             GRASS : GREEN,
             WATER : BLUE,
@@ -59,6 +59,14 @@ while True:
 
             pygame.quit()
             exit()
+
+    for row in range(MAPHEIGHT):
+
+        for column in range(MAPWIDTH):
+
+            position = textures[tilemap[row][column]]
+            display_surface.blit(position, (column*TILESIZE,row*TILESIZE))
+            pygame.display.update()
 
     # Update display
     pygame.display.update()
