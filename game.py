@@ -5,6 +5,8 @@ import time
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
+from gesture_recognizer import GestureRecognizer as gr
+
 # Tile Value Constants
 WALL = 0
 GROUND = 1
@@ -55,6 +57,9 @@ if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
+
+recognizer = gr.GestureRecognizer()
+recognizer.start_recognizing()
 
 # MAIN LOOP
 while True:
