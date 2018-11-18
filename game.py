@@ -4,7 +4,7 @@ from pygame.locals import *
 
 pygame.init()
 
-display_surface = pygame.display.set_mode((500,500))
+display_surface = pygame.display.set_mode((1000,1000))
 
 pygame.display.set_caption('Hand Game')
 
