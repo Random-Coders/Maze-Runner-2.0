@@ -1,7 +1,7 @@
 # Import Pygame
 import pygame
-# Import sys
-import sys
+# Import time
+import time
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Bird
@@ -20,7 +20,7 @@ WHITE = (255, 255, 255)
 RED = (193, 44, 44)
 
 # Pair tiles with color
-textures = {
+colors = {
             WALL  : BROWN,
             GROUND : GREEN,
             WATER : BLUE
@@ -51,19 +51,25 @@ pygame.display.set_caption('Hand Game')
 
 bird = Bird()
 # Only Allow Script that only allows python3.6 and directly called script
-if sys.version_info[0] != 3.6 or __name__ != '__main__':
+if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
 
 # MAIN LOOP
 while True:
-
+    time.sleep(1./60)
     # If game quit than quit app
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             exit()
+
+    for row in range(MAPHEIGHT):
+
+        for column in range(MAPWIDTH):
+            #pygame.draw.rect(display_surface, red, (x,y,50,50))
+            pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
 
     bird.handle_keys() # handle the keys
     bird.draw(display_surface)
