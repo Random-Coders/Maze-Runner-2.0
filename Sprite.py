@@ -47,7 +47,7 @@ class Player(object):  # represents the character, not the game
             # moving right
             print("moving right")
             self.sprite.rect.centerx += dist*x_dir
-        elif x_dir < 0.5:
+        elif x_dir < -0.5:
             # moving left
             print("moving left")
             self.sprite.rect.centerx -= dist*x_dir
@@ -55,7 +55,7 @@ class Player(object):  # represents the character, not the game
             # moving up
             print("moving up")
             self.sprite.rect.centery -= dist*y_dir
-        elif y_dir < 0.5:
+        elif y_dir < -0.5:
             # moving down
             print("moving down")
             self.sprite.rect.centery += dist*y_dir
