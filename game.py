@@ -18,7 +18,7 @@ WHITE = (255, 255, 255)
 RED = (193, 44, 44)
 
 # Pair tiles with color
-textures = {
+colors = {
             WALL  : BROWN,
             GROUND : GREEN,
             WATER : BLUE
@@ -46,10 +46,10 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 
 # Create display title
 pygame.display.set_caption('Hand Game')
-
+red = 255, 0, 0
 bird = Bird()
 # Only Allow Script that only allows python3.6 and directly called script
-if__name__ != '__main__':
+if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
@@ -62,6 +62,12 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
+
+    for row in range(MAPHEIGHT):
+
+        for column in range(MAPWIDTH):
+            #pygame.draw.rect(display_surface, red, (x,y,50,50))
+            pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
 
     bird.handle_keys() # handle the keys
     bird.draw(display_surface)
