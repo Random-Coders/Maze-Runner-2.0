@@ -13,7 +13,7 @@ class Bird(object):  # represents the character, not the game
     def handle_keys(self):
         """ Handles Keys """
         key = pygame.key.get_pressed()
-        dist = 1 # distance moved in 1 frame, try changing it to 5
+        dist = 15
         if key[pygame.K_DOWN]: # down key
             self.y += dist # move down
         elif key[pygame.K_UP]: # up key
