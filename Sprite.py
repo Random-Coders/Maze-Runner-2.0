@@ -9,8 +9,8 @@ class Player(object):  # represents the character, not the game
         self.image = pygame.image.load("assets/Circle.png")
         self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
-        self.x = 175
-        self.y = 175
+        self.x = 50
+        self.y = 50
         self.prev_x_dir = 0
         self.prev_y_dir = 0
     def handle_keys(self):
