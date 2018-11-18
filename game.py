@@ -10,6 +10,8 @@ from gesture_recognizer import GestureRecognizer as gr
 from settings import *
 # Import maps
 from maps import *
+# Import os
+import os
 
 # Initialise Pygame
 pygame.init()
@@ -21,7 +23,7 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 pygame.display.set_caption('Hand Game')
 
 bird = Bird()
-# Only Allow Script that only allows python3.6 and directly called script
+
 if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
@@ -37,12 +39,12 @@ while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
+            os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
     for row in range(MAPHEIGHT):
 
         for column in range(MAPWIDTH):
-            #pygame.draw.rect(display_surface, red, (x,y,50,50))
             pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
 
     bird.handle_keys() # handle the keys
