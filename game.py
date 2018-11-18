@@ -52,24 +52,23 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 pygame.display.set_caption('Hand Game')
 
 bird = Bird()
-
-if sys.version_info[0] == 3.6 and __name__ == '__main__':
-
-    # MAIN LOOP
-    while True:
-
-        # If game quit than quit app
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                exit()
-
-        bird.handle_keys() # handle the keys
-        bird.draw(display_surface)
-
-        # Update display
-        pygame.display.update()
-
-# Python version not 3.6
-else:
+# Only Allow Script that only allows python3.6 and directly called script
+if sys.version_info[0] == 3.6 or __name__ == '__main__':
+    # Python version not 3.6
     print("Must be using Python 3.6")
+    exit()
+
+# MAIN LOOP
+while True:
+
+    # If game quit than quit app
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            exit()
+
+    bird.handle_keys() # handle the keys
+    bird.draw(display_surface)
+
+    # Update display
+    pygame.display.update()
