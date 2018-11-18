@@ -2,6 +2,7 @@
 import pygame
 import os
 from gesture_recognizer import GestureRecognizer as gr
+from settings import *
 # import gesture recognizer class
 class Player(object):  # represents the character, not the game
     def __init__(self):
@@ -9,16 +10,17 @@ class Player(object):  # represents the character, not the game
         # self.image = pygame.image.load("assets/Circle.png")
         self.sprite = pygame.sprite.Sprite()
         self.sprite.image = pygame.image.load("assets/Circle.png").convert_alpha()
-        self.sprite.image = pygame.transform.scale(self.sprite.image, (50,50))
+        self.sprite.image = pygame.transform.scale(self.sprite.image, (30,30))
         self.sprite.rect = self.sprite.image.get_rect()
         self.sprite.rect.move_ip(10,10)
         # self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
-        self.x = 175
-        self.y = 175
+        self.prev_x = 0
+        self.prev_y = 0
         self.prev_x_dir = 0
         self.prev_y_dir = 0
-    def handle_keys(self):
+    def handle_keys(self, list):
+        
         """ Handles Keys """
         key = pygame.key.get_pressed()
         dist = 10
@@ -30,6 +32,12 @@ class Player(object):  # represents the character, not the game
             self.sprite.rect.centerx += dist # move right
         elif key[pygame.K_LEFT]: # left key
             self.sprite.rect.centerx -= dist # move left
+        if self.sprite.rect.collidelist(list) > 1:
+            print('collided')
+            self.sprite.rect.centerx = self.prev_x
+            self.sprite.rect.centery = self.prev_y
+        self.prev_x = self.sprite.rect.centerx
+        self.prev_y = self.sprite.rect.centery
     def handle_gestures(self, x_dir, y_dir):
         dist = 10
         if x_dir == 0 and y_dir == 0:

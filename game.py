@@ -46,6 +46,12 @@ recognizer.start_recognizing()
 
 current = level.Level("level_1.lvl")
 
+rect_list = []
+for row in range(MAPHEIGHT):
+    for column in range(MAPWIDTH):
+        rect = pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
+        if tilemap[row][column] == WALL:
+            rect_list.append(rect)
 # MAIN LOOP
 while True:
     time.sleep(1./30)
@@ -59,11 +65,11 @@ while True:
     x_dir = recognizer.gesture.x_dir
     y_dir = recognizer.gesture.y_dir
     # player.handle_gestures(x_dir, y_dir)
-    player.handle_keys()
+    player.handle_keys(rect_list)
 
-    camera_data = camera.update(player, current)
+    # camera_data = camera.update(player, current)
 
-    create.level(display_surface, current, camera_data, player.x, player.y)
+    # create.level(display_surface, current, camera_data, player.x, player.y)
 
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):
