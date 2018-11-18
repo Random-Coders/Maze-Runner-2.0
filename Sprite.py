@@ -1,6 +1,7 @@
-#background movement for game :)
+#background movement for game
 import pygame
 import os
+from gesture_recognizer import GestureRecognizer as gr
 # import gesture recognizer class
 class Player(object):  # represents the character, not the game
     def __init__(self):
