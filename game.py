@@ -2,7 +2,7 @@
 import pygame
 # Import loading code for pygame
 from pygame.locals import *
-
+from Sprite import Bird
 # Tile Value Constants
 DIRT = 0
 GRASS = 1
@@ -49,52 +49,17 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+bird = Bird()
+
 # MAIN LOOP
 while True:
 
     # If game quit than quit app
     for event in pygame.event.get():
-
         if event.type == QUIT:
-
             pygame.quit()
             exit()
-
+    bird.handle_keys() # handle the keys
+    bird.draw(display_surface)
     # Update display
     pygame.display.update()
-
-character = makeSprite("blue.png")
-showSprite(character)
-moveSprite(character, x, 800)
-xPo = 500
-yPo = 500
-xSpeed = 0
-ySpeed = 0
-moveSprite(character, xPo, yPo)
-while True:
-    if keyPressed("up"):
-        rotateSprite(character, 0)
-        ySpeed -= 2
-    elif keyPressed("down"):
-        rotateSprite(character, 200)
-        ySpeed += 2
-    elif keyPressed("right"):
-        rotateSprite(character, 200)
-        xSpeed += 2
-    elif keyPressed("left"):
-        rotateSprite(character, -200)
-        xSpeed -= 2
-    xPo += xSpeed
-    if xPo > 980:
-        xPo = -100
-    elif xPo < -100:
-        xPo = 980
-
-    yPo += ySpeed
-    if yPo > 900:
-        yPo = -100
-    elif yPo < -100:
-        yPo = 900
-    moveSprite(character, xPo, yPo)
-    tick(25)
-    showSprite(character)
