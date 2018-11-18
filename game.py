@@ -28,6 +28,7 @@ display_surface = pygame.display.set_mode((750,750))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+<<<<<<< HEAD
 # Fill base black backgound
 display_surface.fill((0, 0, 0))
 
@@ -40,12 +41,17 @@ rect = pygame.Rect(750,750,60,90)
 # Create camera
 camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
 
+=======
+player = Player()
+
+# Only Allow Script that only allows python3.6 and directly called script
+>>>>>>> d7d72e19d1f94ba6f392de96f0bfef4bd22f93ca
 if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
     exit()
 
-recognizer = gr.GestureRecognizer()
+recognizer = gr.GestureRecognizer(print_pos=False)
 recognizer.start_recognizing()
 
 current = level.Level("level_1.lvl")
@@ -62,8 +68,11 @@ while True:
 
     create.level(display_surface, current, camera)
 
-    bird.handle_keys() # handle the keys
-    bird.draw(display_surface)
+    # bird.handle_keys() # handle the keys
+    x_dir = recognizer.gesture.x_dir
+    y_dir = recognizer.gesture.y_dir
+    player.handle_gestures(x_dir, y_dir)
+    player.draw(display_surface)
 
     camera.update(rect, current)
 

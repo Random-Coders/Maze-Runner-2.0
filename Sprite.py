@@ -2,10 +2,11 @@
 import pygame
 import os
 # import gesture recognizer class
-class Bird(object):  # represents the character, not the game
+class Player(object):  # represents the character, not the game
     def __init__(self):
         """ The constructor of the class """
-        self.image = pygame.image.load("blue.png")
+        self.image = pygame.image.load("assets/Circle.png")
+        self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
         self.x = 100
         self.y = 100
@@ -22,7 +23,19 @@ class Bird(object):  # represents the character, not the game
             self.x += dist # move right
         elif key[pygame.K_LEFT]: # left key
             self.x -= dist # move left
-
+    def handle_gestures(self, x_dir, y_dir):
+        if x_dir == 0 and y_dir == 0:
+            print("still")
+        if x_dir > 0 and x_dir > 0.5:
+            print("moving right")
+        elif x_dir < 0 and x_dir < -0.5:
+            print("moving left")
+        if y_dir > 0 and y_dir > 0.5:
+            print("moving up")
+        elif y_dir < 0 and y_dir < -0.5:
+            print("moving down")
+        # print('x_dir', x_dir)
+        # print('y_dir', y_dir)
     def draw(self, surface):
         """ Draw on surface """
         # blit yourself at your current position
