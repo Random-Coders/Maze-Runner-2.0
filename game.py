@@ -2,7 +2,7 @@
 import pygame
 # Import loading code for pygame
 from pygame.locals import *
-
+from Sprite import Bird
 # Tile Value Constants
 DIRT = 0
 GRASS = 1
@@ -49,24 +49,20 @@ display_surface = pygame.display.set_mode((MAPWIDTH*TILESIZE,MAPWIDTH*TILESIZE))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
+bird = Bird()
+
 # MAIN LOOP
 while True:
 
     # If game quit than quit app
     for event in pygame.event.get():
-
         if event.type == QUIT:
-
             pygame.quit()
             exit()
 
-    for row in range(MAPHEIGHT):
-
-        for column in range(MAPWIDTH):
-
-            position = textures[tilemap[row][column]]
-            display_surface.blit(position, (column*TILESIZE,row*TILESIZE))
-            pygame.display.update()
+    bird.handle_keys() # handle the keys
+    bird.draw(display_surface)
 
     # Update display
     pygame.display.update()
+
