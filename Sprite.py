@@ -10,7 +10,7 @@ class Player(object):  # represents the character, not the game
         self.image = pygame.transform.scale(self.image, (50, 50))
         # the character's position
         self.x = 50
-        self.y = 50
+        self.y = 690
         self.prev_x_dir = 0
         self.prev_y_dir = 0
     def handle_keys(self):
@@ -30,19 +30,19 @@ class Player(object):  # represents the character, not the game
         if x_dir == 0 and y_dir == 0:
             # still
             print("still")
-        if x_dir > 0:
+        if x_dir > 0.5:
             # moving right
             print("moving right")
             self.x += dist*x_dir
-        elif x_dir < 0:
+        elif x_dir < 0.5:
             # moving left
             print("moving left")
             self.x -= dist*x_dir
-        if y_dir > 0:
+        if y_dir > 0.5:
             # moving up
             print("moving up")
             self.y -= dist*y_dir
-        elif y_dir < 0:
+        elif y_dir < 0.5:
             # moving down
             print("moving down")
             self.y += dist*y_dir

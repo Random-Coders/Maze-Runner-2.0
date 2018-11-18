@@ -56,11 +56,10 @@ while True:
             os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
-    # bird.handle_keys() # handle the keys
-    #x_dir = recognizer.gesture.x_dir
-    #y_dir = recognizer.gesture.y_dir
-    #player.handle_gestures(x_dir, y_dir)
-    player.handle_keys()
+    x_dir = recognizer.gesture.x_dir
+    y_dir = recognizer.gesture.y_dir
+    player.handle_gestures(x_dir, y_dir)
+    #player.handle_keys()
 
     camera_data = camera.update(player, current)
 
