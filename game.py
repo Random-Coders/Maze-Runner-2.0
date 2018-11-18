@@ -5,6 +5,7 @@ import time
 # Import loading code for pygame
 from pygame.locals import *
 from Sprite import Player
+# Import gesture recognizer
 from gesture_recognizer import GestureRecognizer as gr
 # Import settings
 from settings import *
@@ -27,31 +28,9 @@ display_surface = pygame.display.set_mode((750,750))
 # Create display title
 pygame.display.set_caption('Hand Game')
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-# create player
-player = Player()
-
->>>>>>> 223dca25a9cd8368f6bd85c498a1b4249710b425
-# Fill base black backgound
-display_surface.fill((0, 0, 0))
-
-# Create rect
-rect = pygame.Rect(750,750,60,90)
-
-# Create camera
-camera = camera.Camera(rect, MAPWIDTH, MAPHEIGHT)
-
-<<<<<<< HEAD
-=======
 player = Player()
 
 # Only Allow Script that only allows python3.6 and directly called script
->>>>>>> d7d72e19d1f94ba6f392de96f0bfef4bd22f93ca
-=======
-# Only Allow Script that only allows python3.6 and directly called script
->>>>>>> 223dca25a9cd8368f6bd85c498a1b4249710b425
 if __name__ != '__main__':
     # Python version not 3.6
     print("Must be using Python 3.6")
@@ -65,6 +44,12 @@ current = level.Level("level_1.lvl")
 # MAIN LOOP
 while True:
     time.sleep(1./60)
+    # If game quit than quit app
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            os.remove('__pycache__/Sprite.cpython-36.pyc')
+            exit()
 
     create.level(display_surface, current, camera)
 
