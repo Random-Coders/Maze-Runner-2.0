@@ -65,7 +65,7 @@ while True:
 
 character = makeSprite("blue.png")
 showSprite(character)
-character, x, 800)
+(character, x, 800)
 xPo = 500
 yPo = 500
 xSpeed = 0
