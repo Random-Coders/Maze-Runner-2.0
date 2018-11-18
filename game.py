@@ -48,7 +48,7 @@ current = level.Level("level_1.lvl")
 
 # MAIN LOOP
 while True:
-    time.sleep(1./60)
+    time.sleep(1./30)
     # If game quit than quit app
     for event in pygame.event.get():
         if event.type == QUIT:
