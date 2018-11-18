@@ -58,8 +58,8 @@ while True:
 
     x_dir = recognizer.gesture.x_dir
     y_dir = recognizer.gesture.y_dir
-    player.handle_gestures(x_dir, y_dir)
-    #player.handle_keys()
+    # player.handle_gestures(x_dir, y_dir)
+    player.handle_keys()
 
     camera_data = camera.update(player, current)
 
