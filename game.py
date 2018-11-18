@@ -56,25 +56,20 @@ while True:
             os.remove('__pycache__/Sprite.cpython-36.pyc')
             exit()
 
+    # bird.handle_keys() # handle the keys
+    #x_dir = recognizer.gesture.x_dir
+    #y_dir = recognizer.gesture.y_dir
+    #player.handle_gestures(x_dir, y_dir)
+    player.handle_keys()
+
+    camera_data = camera.update(rect, current)
+
+    create.level(display_surface, current, camera_data, player.x, player.y)
+
     for row in range(MAPHEIGHT):
         for column in range(MAPWIDTH):
             pygame.draw.rect(display_surface, colors[tilemap[row][column]], (column*TILESIZE,row*TILESIZE,TILESIZE,TILESIZE))
 
-    camera.update(rect, current)
-    for y in range(MAPHEIGHT):
-        for x in range(MAPWIDTH):
-            if tilemap[y][x] == level.block:
-                display_surface.blit(display_surface,
-                             ((x*TILESIZE) - camera.left,
-                             (y*TILESIZE) - camera.top,))
-            else:
-                pass
-    # create.level(display_surface, current, camera)
-
-    # bird.handle_keys() # handle the keys
-    x_dir = recognizer.gesture.x_dir
-    y_dir = recognizer.gesture.y_dir
-    player.handle_gestures(x_dir, y_dir)
     player.draw(display_surface)
 
     # Update display
